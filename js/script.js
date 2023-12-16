@@ -1,12 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleSwitch = document.querySelector('#toggle-dark-mode');
-    toggleSwitch.addEventListener('change', toggleDarkMode, false);
+const body = document.body;
+const darkModeButton = document.getElementById('toggle-button')
+const circle = document.querySelector('.circle')
 
-    function toggleDarkMode(e) {
-        if (e.target.checked) {
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
-        }
-    }
-});
+const toggleDarkMode = () => {
+    body.classList.toggle('dark-mode');
+    circle.classList.toggle('night');
+}
+
+darkModeButton.addEventListener('click', toggleDarkMode);

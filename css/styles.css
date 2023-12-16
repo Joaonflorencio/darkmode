@@ -1,7 +1,11 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+:root {
+  --lightGrey: #cbcbcb;
+  --lightMode: #ffd000;
+  --darkMode: #0c62d2;
+  --golden: #ffe324;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -48,108 +52,96 @@ table {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+/** **/
+.top-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 30px;
+  font-weight: 400;
+  
+}
+.main {
+  min-height: 100vh;
+  padding: 20px;
+}
+.container-night-mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.image-container {
-    text-align: center;
+.container-night-mode span {
+  font-weight: 400;
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-}
-
-.content {
-    padding: 20px;
-}
-
-/* Estilos para el modo claro */
-body {
-    background-color: white;
-    color: black;
-}
-
-/* Estilos para el interruptor */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
+.toggle-button {
+  width: 50px;
+  border-radius: 15px;
+  background-color: var(--lightGrey);
+  padding: 5px;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Estilo redondeado */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
+.circle {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  background-color: var(--lightMode);
+  background-image: url(../assets/img/sol.png);
+  background-size: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform .5s ease-out, background-color .5s ease-out;
+}
+.night {
+  transform: translate(30px);
+  background-color: var(--darkMode);
+  background-image: url(../assets/img/luna.png);
+  
+}
+.masthead h1 {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.masthead img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.masthead p {
+  margin-bottom: 20px;
+  line-height: 20px;
+  font-weight: 300;
 }
 
-/* Estilos para el modo oscuro */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+article {
+  margin: 0 auto;
+  max-width: 900px;
 }
 
-.dark-mode .image-container h2 {
-    color: #ffffff;
+h1, p, span, .logo {
+  transition: color 0.5s ease-in-out
 }
 
-.dark-mode .dark-mode-toggle span {
-    color: #ffffff;
+.main, .top-header {
+  transition: background-color 0.5s ease-in-out;
 }
 
+.dark-mode p, .dark-mode span {
+  color: white;
+}
+.dark-mode .logo, .dark-mode h1 {
+  color: var(--golden);
+}
+
+.dark-mode .main, .dark-mode .top-header {
+  background-color: black;
+}
